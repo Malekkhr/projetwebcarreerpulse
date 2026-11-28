@@ -14,6 +14,7 @@ $isAdmin = $isLoggedIn && ($_SESSION['role'] ?? '') === 'admin';
         <div class="cp-nav-links">
             <a href="<?= e(route('home')) ?>" class="cp-nav-link <?= $currentPage === 'home' ? 'active' : '' ?>">Accueil</a>
             <a href="<?= e(route('courses')) ?>" class="cp-nav-link <?= $currentPage === 'courses' ? 'active' : '' ?>">Formations &amp; Catégories</a>
+            <a href="<?= e(route('offers')) ?>" class="cp-nav-link <?= $currentPage === 'offers' ? 'active' : '' ?>">Offres &amp; Stages</a>
             <?php if ($isLoggedIn): ?>
                 <a href="<?= e(route('dashboard')) ?>" class="cp-nav-link <?= $currentPage === 'dashboard' ? 'active' : '' ?>">Mon espace</a>
                 <a href="<?= e(route('profile')) ?>" class="cp-nav-link <?= $currentPage === 'profile' ? 'active' : '' ?>">Mon profil</a>
