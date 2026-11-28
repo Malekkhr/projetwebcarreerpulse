@@ -1,4 +1,4 @@
-# CareerPulse — Module Gestion des Formations, Catégories & Comptes
+# CareerPulse — Formations, Offres, Catégories & Comptes
 
 Sous-projet autonome extrait de **CareerPulse** conservant :
 - La même charte graphique (`#1f3d2b`, `#0f2a1d`, `#d9a531`), le même logo **CareerPulse** et la typographie `Arial, Helvetica, sans-serif`.
@@ -105,6 +105,19 @@ Les attributs `maxlength` sont aussi posés dans les vues. Le JavaScript ne remp
 - **Durée de session** : `session.gc_maxlifetime = 1800` (aligné sur les 30 min d'inactivité), `use_only_cookies`, `use_trans_sid=0`, cookie de session sans date d'expiration.
 - **HTTPS** : `session.cookie_secure` est activé automatiquement dès que le site est servi en HTTPS.
 - **Anti force brute** : 5 échecs de connexion consécutifs => connexion bloquée 5 minutes (compteur en session) ; `password_verify()` est exécuté même si l'e-mail n'existe pas (temps de réponse constant). *Limite : compteur lié à la session ; une protection par IP/compte en base serait l'étape suivante en production.*
+
+## Module Offres et Types d’offres
+
+Le module ajoute un CRUD administrateur des types et des offres, puis un catalogue public avec recherche, filtres par type et mode de travail, et une fiche détaillée.
+
+- Routes publiques : index.php?action=offers et index.php?action=offers&id=1.
+- Routes administrateur (rôle admin) : admin/offers et admin/offer-types.
+- Modèles : app/Models/OfferModel.php et OfferTypeModel.php.
+- Contrôleurs PDO : app/Controllers/OfferQueries.php, OfferController.php et Admin/OfferController.php / OfferTypeController.php.
+- Jointure métier : offers.type_id référence offer_types.id ; la liste d’administration et le catalogue public chargent le type avec une jointure SQL préparée.
+- Règles métier : nom de type unique ; type relié à une offre non supprimable ; type avec offres publiées non désactivable ; seules les offres publiées, non expirées et de type actif sont visibles du public ; date passée refusée pour une offre publiée.
+- Validation des saisies : longueurs et listes autorisées vérifiées en PHP, contrôle de saisie ajouté dans les formulaires avec validation.js, jeton CSRF sur chaque écriture.
+- Base déjà installée : importer database/migration_offres.sql dans phpMyAdmin. Nouvelle installation : database/formation.sql crée aussi les tables et insère des exemples de démonstration.
 
 ## Architecture CSS du front-office (Chapitre 3 : Flexbox & Grid)
 - `careerpulse.css` : CSS3 pur, **sans Bootstrap**, approche **mobile-first** (`min-width: 576 / 768 / 1024 / 1200px`).

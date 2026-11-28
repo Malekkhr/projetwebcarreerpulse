@@ -8,6 +8,7 @@
                 <div class="cp-hero-actions">
                     <a href="<?= e(route('courses')) ?>" class="cp-btn cp-btn--primary cp-btn--lg">Explorer les formations <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                     <a href="<?= e(route('profile')) ?>" class="cp-btn cp-btn--light cp-btn--lg">Mon compte étudiant</a>
+                    <a href="<?= e(route('offers')) ?>" class="cp-btn cp-btn--light cp-btn--lg">Découvrir les offres</a>
                 </div>
                 <div class="cp-proof-row">
                     <span><i class="bi bi-person-check" aria-hidden="true"></i> Compte &amp; inscription liés</span>

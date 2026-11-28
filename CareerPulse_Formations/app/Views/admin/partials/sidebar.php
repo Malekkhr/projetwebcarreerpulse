@@ -15,6 +15,8 @@
                 ['admin/dashboard', 'Vue d’ensemble', 'TB'],
                 ['admin/courses', 'Gestion des formations', 'FM'],
                 ['admin/categories', 'Gestion des catégories', 'CT'],
+                ['admin/offers', 'Gestion des offres', 'OF'],
+                ['admin/offer-types', 'Types d’offres', 'TO'],
                 ['admin/users', 'Gestion des utilisateurs', 'US'],
             ];
             foreach ($adminLinks as [$page, $label, $code]):
@@ -24,8 +26,8 @@
             <?php endforeach; ?>
         </nav>
         <div class="mt-auto rounded-2xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-white/[0.03]">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 dark:text-brand-400">Base formation</p>
-            <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">Les formations, catégories et comptes sont synchronisés sur la même base MySQL.</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 dark:text-brand-400">CareerPulse</p>
+            <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">Formations, offres et comptes partagent la même base MySQL.</p>
             <div class="mt-3 flex flex-col gap-2">
                 <a class="inline-flex text-xs font-semibold text-brand-600 hover:text-brand-800 dark:text-brand-400" href="<?= e(route('home')) ?>">Retour au Front Office →</a>
                 <form method="post" action="<?= e(route('logout')) ?>" style="margin:0"><?= csrf_input() ?><button type="submit" class="inline-flex text-xs font-semibold text-gray-500 hover:text-gray-800 dark:text-gray-400" style="cursor:pointer;background:none;border:0;padding:0">Se déconnecter</button></form>

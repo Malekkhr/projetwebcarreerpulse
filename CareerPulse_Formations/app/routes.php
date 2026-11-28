@@ -5,6 +5,7 @@ use CareerPulse\Controllers\Admin;
 use CareerPulse\Controllers\AuthController;
 use CareerPulse\Controllers\CourseController;
 use CareerPulse\Controllers\HomeController;
+use CareerPulse\Controllers\OfferController;
 use CareerPulse\Controllers\ProfileController;
 
 /**
@@ -15,6 +16,7 @@ return [
     // Public
     'home'     => [HomeController::class, 'index'],
     'courses'  => [CourseController::class, 'index'],
+    'offers'   => [OfferController::class, 'index'],
     'register' => [AuthController::class, 'registerPage'],
     'login'    => [AuthController::class, 'loginPage'],
     // Réservé aux utilisateurs connectés (requireAuth)
@@ -26,6 +28,8 @@ return [
     'admin'            => [Admin\DashboardController::class, 'index'],
     'admin/dashboard'  => [Admin\DashboardController::class, 'index'],
     'admin/courses'    => [Admin\CourseController::class, 'index'],
+    'admin/offers'      => [Admin\OfferController::class, 'index'],
+    'admin/offer-types' => [Admin\OfferTypeController::class, 'index'],
     'admin/categories' => [Admin\CategoryController::class, 'index'],
     // CRUD utilisateurs + rôles (écritures : POST + CSRF uniquement)
     'admin/users'        => [Admin\UserController::class, 'index'],

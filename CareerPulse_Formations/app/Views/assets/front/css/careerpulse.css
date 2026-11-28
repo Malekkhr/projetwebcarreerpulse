@@ -666,3 +666,50 @@ textarea.cp-input { resize: vertical; }
 /* Déconnexion en POST : le formulaire se comporte comme un simple bouton de la navbar */
 .cp-inline-form { display: flex; margin: 0; }
 .cp-inline-form .cp-btn { flex: 1; }
+
+
+/* Catalogue des offres : cartes et filtres responsives */
+.cp-offers-page { background: #f7f8f6; }
+.cp-offers-heading { margin-bottom: 26px; }
+.cp-offer-filters {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+.cp-offer-filter-actions { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; }
+.cp-offers-results-head { margin: 22px 0 16px; }
+.cp-offers-results-head .cp-section-title { margin-bottom: 0; font-size: 1.45rem; }
+.cp-offers-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.cp-offer-card { display: flex; flex-direction: column; gap: 8px; }
+.cp-offer-card h2 { margin: 4px 0 0; color: var(--dark); font-size: 1.25rem; }
+.cp-offer-card p { margin-bottom: 4px; }
+.cp-offer-company { color: var(--dark); font-weight: 800; }
+.cp-offer-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.cp-offer-type, .cp-offer-mode {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 5px 10px;
+    background: #e9f2eb;
+    color: var(--primary);
+    font-size: .78rem;
+    font-weight: 800;
+}
+.cp-offer-mode { background: #f5edd8; color: #775817; }
+.cp-offer-card-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--cp-border); }
+.cp-offer-card-footer small { color: var(--cp-muted); }
+.cp-offer-detail { max-width: 900px; margin: 24px auto 0; padding: clamp(22px, 4vw, 42px); }
+.cp-offer-detail h1 { margin: 18px 0 10px; color: var(--dark); font-size: clamp(2rem, 4vw, 3rem); }
+.cp-offer-detail h2 { margin: 25px 0 8px; color: var(--dark); font-size: 1.3rem; }
+.cp-offer-detail p { line-height: 1.75; }
+.cp-offer-detail hr { margin: 24px 0; border: 0; border-top: 1px solid var(--cp-border); }
+
+@media (min-width: 768px) {
+    .cp-offer-filters { grid-template-columns: 2fr 1fr 1fr; align-items: end; }
+    .cp-offer-filter-actions { grid-column: 1 / -1; }
+    .cp-offers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1200px) {
+    .cp-offers-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
